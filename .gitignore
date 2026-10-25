@@ -1,0 +1,61 @@
+# ==============================================================================
+# .gitignore - Racana Universitas Samawa (UNSA)
+# Repository: https://github.com/pahriyadi/sistem_pramuka.git
+# ==============================================================================
+
+# 1. Environment & Credentials (Jangan pernah upload kredensial live ke GitHub)
+.env
+.env.local
+.env.*.local
+
+# 2. Backup & Archive Files
+*.zip
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.bak
+racanaunsa.com.zip
+
+# 3. User Uploads (Struktur direktori tetap terjaga via .gitkeep)
+uploads/peserta/*
+!uploads/peserta/.gitkeep
+
+uploads/pembayaran/*
+!uploads/pembayaran/.gitkeep
+
+uploads/dokumen/*
+!uploads/dokumen/.gitkeep
+
+uploads/branding/*
+!uploads/branding/.gitkeep
+
+uploads/qris/*
+!uploads/qris/.gitkeep
+
+# 4. Web Server & Error Logs
+*.log
+error_log
+
+# 5. OS Generated Files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# 6. IDE & Editor Specific Files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# 7. Dependency Folders (jika ditambahkan di masa depan)
+vendor/
+node_modules/

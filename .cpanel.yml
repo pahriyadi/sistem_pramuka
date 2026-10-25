@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/n1579664/public_html/racanaunsa.my.id/
+    - /bin/rsync -av --exclude='.git' --exclude='.cpanel.yml' * $DEPLOYPATH

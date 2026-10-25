@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="favBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b2545"/>
+      <stop offset="100%" stop-color="#800000"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Shield -->
+  <rect width="120" height="120" rx="28" fill="url(#favBg)"/>
+  <circle cx="60" cy="60" r="48" fill="none" stroke="#d97706" stroke-width="3" stroke-dasharray="6,4"/>
+  
+  <!-- Tunas Kelapa / Fleur-de-lis Pramuka Icon -->
+  <g transform="translate(60,60)">
+    <!-- Central Shoot -->
+    <path d="M0,-32 C8,-18 10,-4 0,16 C-10,-4 -8,-18 0,-32 Z" fill="url(#goldGrad)" stroke="#5d3a00" stroke-width="1.5"/>
+    <!-- Left Leaf -->
+    <path d="M0,8 C-16,6 -28,-6 -24,-20 C-18,-10 -8,-2 0,8 Z" fill="url(#goldGrad)" stroke="#5d3a00" stroke-width="1.5"/>
+    <!-- Right Leaf -->
+    <path d="M0,8 C16,6 28,-6 24,-20 C18,-10 8,-2 0,8 Z" fill="url(#goldGrad)" stroke="#5d3a00" stroke-width="1.5"/>
+    <!-- Coconut Base -->
+    <circle cx="0" cy="20" r="10" fill="#5d3a00"/>
+    <circle cx="0" cy="20" r="8" fill="url(#goldGrad)"/>
+    <!-- Star at top -->
+    <polygon points="0,-36 2.5,-30 8.5,-30 3.5,-26 5.5,-20 0,-24 -5.5,-20 -3.5,-26 -8.5,-30 -2.5,-30" fill="#ffffff"/>
+  </g>
+</svg>

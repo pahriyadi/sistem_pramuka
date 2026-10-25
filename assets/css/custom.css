@@ -1,0 +1,1339 @@
+/* ==========================================================
+   Racana Universitas Samawa (UNSA) - Master Design System
+   Sistem Desain 4 Warna Resmi:
+   1. 🌊 Biru Tua Laut (Navy)   : #0b2545 / #07172b / #133e87
+   2. 🛡️ Merah Maron (Maroon)  : #800000 / #550000 / #991b1b
+   3. ⭐ Kuning Emas (Gold)     : #d97706 / #ffd700 / #fef3c7
+   4. 🏕️ Coklat Pramuka (Brown) : #5d3a00 / #3e2600 / #78350f
+   ========================================================== */
+
+:root {
+    /* 1. BIRU TUA LAUT (OCEAN NAVY - IDENTITAS UNSA & KELAUTAN SAMAWA) */
+    --scout-navy-primary: #0b2545;      /* Deep Ocean Navy */
+    --scout-navy-dark: #07172b;         /* Midnight Navy Dark */
+    --scout-navy-light: #133e87;        /* Vibrant Royal Navy */
+    
+    /* 2. MERAH MARON (DEEP MAROON / CRIMSON - KSATRIA & KEBERANIAN) */
+    --scout-maroon-main: #800000;       /* Official Crimson Maroon */
+    --scout-maroon-dark: #550000;       /* Dark Velvet Maroon */
+    --scout-maroon-light: #991b1b;      /* Rich Maroon Crimson */
+
+    /* 3. KUNING EMAS (SCOUT GOLD - KEJAYAAN, PRESTASI & BINTANG PANDU) */
+    --scout-gold-main: #d97706;         /* Royal Scout Gold */
+    --scout-gold-bright: #ffd700;       /* Bright Golden Sun */
+    --scout-gold-light: #fef3c7;        /* Cream Gold Soft */
+    --scout-gold-hover: #b45309;
+
+    /* 4. COKLAT PRAMUKA (SCOUT EARTH BROWN - KEPANDUAN & BAKTI ALAM) */
+    --scout-brown-main: #5d3a00;        /* Coklat Pramuka Resmi */
+    --scout-brown-dark: #3e2600;        /* Coklat Gelap Footer / Earth */
+    --scout-brown-light: #78350f;       /* Coklat Sedang / Wood */
+
+    /* 5. STATUS SEMANTIK */
+    --status-success: #16a34a;
+    --status-success-bg: #dcfce7;
+    --status-warning: #f59e0b;
+    --status-warning-bg: #fef3c7;
+    --status-danger: #dc2626;
+    --status-danger-bg: #fee2e2;
+    --status-info: #0284c7;
+    --status-info-bg: #e0f2fe;
+
+    /* 6. PERMUKAAN & NETRAL (SURFACES & GRAYSCALE) */
+    --bg-canvas: #f8fafc;
+    --surface-card: #ffffff;
+    --surface-subtle: #f1f5f9;
+    --border-subtle: #e2e8f0;
+    --border-navy: rgba(11, 37, 69, 0.18);
+    --border-maroon: rgba(128, 0, 0, 0.2);
+    --border-gold: rgba(217, 119, 6, 0.25);
+    --border-brown: rgba(93, 58, 0, 0.2);
+
+    --text-dark: #07172b;
+    --text-body: #1e293b;
+    --text-muted: #334155;
+
+    /* 7. RADIUS & SHADOWS */
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-pill: 50px;
+
+    --shadow-soft: 0 10px 25px -5px rgba(0, 0, 0, 0.04), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 20px 30px -10px rgba(11, 37, 69, 0.15);
+    --shadow-gold: 0 10px 25px -5px rgba(217, 119, 6, 0.25);
+    --shadow-maroon: 0 10px 25px -5px rgba(128, 0, 0, 0.25);
+
+    /* 8. LEGACY COMPATIBILITY MAPPINGS */
+    --scout-navy: var(--scout-navy-primary);
+    --scout-maroon: var(--scout-maroon-main);
+    --scout-gold: var(--scout-gold-main);
+    --scout-brown: var(--scout-brown-main);
+    --primary-color: var(--scout-navy-primary);
+    --primary-dark: var(--scout-navy-dark);
+    --primary-light: var(--scout-navy-light);
+    --secondary-color: var(--scout-gold-main);
+    --secondary-hover: var(--scout-gold-hover);
+    --accent-color: var(--scout-maroon-main);
+    --dark-bg: var(--scout-navy-dark);
+    --card-bg: var(--surface-card);
+    --text-main: var(--text-dark);
+    --border-color: var(--border-subtle);
+}
+
+/* BASE STYLING & HIGH CONTRAST TYPOGRAPHY */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: var(--text-body);
+    background-color: var(--bg-canvas);
+    overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, .fw-heading {
+    font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif;
+    color: var(--text-dark);
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+code, kbd, samp, pre, .font-monospace {
+    font-family: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+}
+
+a {
+    color: var(--scout-navy-primary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: var(--scout-gold-main);
+}
+
+:focus-visible {
+    outline: 2px solid var(--scout-gold-main);
+    outline-offset: 2px;
+}
+
+/* GLOBAL CONTRAST BOOSTER FOR LIGHT & MUTED TEXT */
+.text-white-50 {
+    color: rgba(255, 255, 255, 0.88) !important;
+}
+
+.text-white-75 {
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.text-muted, .form-text {
+    color: #475569 !important; /* Slate 600 - High contrast readable on white & light gray */
+}
+
+.fw-extrabold { font-weight: 800 !important; }
+.fw-semibold  { font-weight: 600 !important; }
+
+/* ==========================================================
+   SCOPED CONTRAST OVERRIDES: DARK SURFACES
+   (Ensures zero washed out/invisible text on dark navy, maroon, brown, dark slate)
+   ========================================================== */
+.hero-portal,
+.page-banner-scout,
+.sidebar-wrapper,
+footer,
+.bg-dark,
+.bg-scout-navy,
+.bg-scout-maroon,
+.bg-scout-brown,
+.bank-card,
+.card-dark-scout,
+.status-hero-banner.bg-dark {
+    color: #ffffff;
+}
+
+.hero-portal > .container h1, .hero-portal > .container h2, .hero-portal > .container h3, 
+.hero-portal > .container h4, .hero-portal > .container h5, .hero-portal > .container h6,
+.page-banner-scout h1, .page-banner-scout h2, .page-banner-scout h3, 
+.page-banner-scout h4, .page-banner-scout h5, .page-banner-scout h6,
+.sidebar-wrapper h1, .sidebar-wrapper h2, .sidebar-wrapper h3, 
+.sidebar-wrapper h4, .sidebar-wrapper h5, .sidebar-wrapper h6,
+footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 {
+    color: #ffffff !important;
+}
+
+.hero-portal .lead,
+.page-banner-scout p,
+.page-banner-scout .lead,
+footer p,
+footer li,
+footer span {
+    color: rgba(255, 255, 255, 0.90);
+}
+
+.page-banner-scout .text-muted,
+.page-banner-scout .text-secondary,
+.page-banner-scout small,
+.sidebar-wrapper .text-muted,
+.sidebar-wrapper .text-secondary,
+footer .text-muted,
+footer .text-secondary,
+.bg-dark .text-muted,
+.bg-dark .text-secondary,
+.bg-scout-navy .text-muted,
+.bg-scout-maroon .text-muted,
+.bg-scout-brown .text-muted,
+.bank-card .text-muted,
+.bank-card .text-secondary {
+    color: rgba(255, 255, 255, 0.88) !important;
+}
+
+/* Footer high contrast link styling */
+footer a.text-white-50,
+footer .hover-white,
+footer ul.list-unstyled a {
+    color: rgba(255, 255, 255, 0.85) !important;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+footer a.text-white-50:hover,
+footer .hover-white:hover,
+footer ul.list-unstyled a:hover {
+    color: var(--scout-gold-bright) !important;
+    transform: translateX(3px);
+}
+
+/* ==========================================================
+   SCOPED CONTRAST OVERRIDES: LIGHT SURFACES & FORMS
+   (Includes nested light cards inside dark hero sections)
+   ========================================================== */
+.custom-card,
+.feature-box,
+.stat-widget,
+.slot-card,
+.modal-content,
+.bg-white,
+.bg-light,
+.hero-portal .custom-card,
+.hero-portal .card,
+.hero-portal .bg-white,
+.hero-portal .bg-light,
+.page-banner-scout .custom-card,
+.page-banner-scout .card,
+.page-banner-scout .bg-white {
+    color: var(--text-body);
+}
+
+.custom-card h1, .custom-card h2, .custom-card h3, .custom-card h4, .custom-card h5, .custom-card h6,
+.feature-box h1, .feature-box h2, .feature-box h3, .feature-box h4, .feature-box h5, .feature-box h6,
+.stat-widget h1, .stat-widget h2, .stat-widget h3, .stat-widget h4, .stat-widget h5, .stat-widget h6,
+.hero-portal .custom-card h1, .hero-portal .custom-card h2, .hero-portal .custom-card h3, 
+.hero-portal .custom-card h4, .hero-portal .custom-card h5, .hero-portal .custom-card h6,
+.hero-portal .card h1, .hero-portal .card h2, .hero-portal .card h3, 
+.hero-portal .card h4, .hero-portal .card h5, .hero-portal .card h6,
+.hero-portal .bg-white h1, .hero-portal .bg-white h2, .hero-portal .bg-white h3, 
+.hero-portal .bg-white h4, .hero-portal .bg-white h5, .hero-portal .bg-white h6 {
+    color: var(--text-dark) !important;
+}
+
+.hero-portal .custom-card .text-muted,
+.hero-portal .custom-card small.text-muted,
+.hero-portal .card .text-muted,
+.hero-portal .card small.text-muted,
+.hero-portal .bg-white .text-muted,
+.hero-portal .bg-white small.text-muted,
+.hero-portal .bg-light .text-muted,
+.hero-portal .bg-light small.text-muted {
+    color: #475569 !important; /* Slate 600 - High contrast readable on white/light gray */
+}
+
+.hero-portal .custom-card .text-dark,
+.hero-portal .card .text-dark,
+.hero-portal .bg-white .text-dark,
+.hero-portal .bg-light .text-dark {
+    color: #07172b !important;
+}
+
+.hero-portal .custom-card li,
+.hero-portal .card li,
+.hero-portal .bg-white li,
+.hero-portal .bg-light li {
+    color: #1e293b !important;
+}
+
+.hero-status-card {
+    background: #ffffff !important;
+    color: #1e293b !important;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.35) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.hero-status-card h6 {
+    color: #07172b !important;
+}
+
+.hero-status-card .stat-box {
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+}
+
+.hero-status-card .stat-box:hover {
+    background: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(11, 37, 69, 0.08);
+}
+
+.hero-status-card .stat-label {
+    color: #475569 !important;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.hero-status-card .formation-box {
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-left: 4px solid var(--scout-navy-primary) !important;
+}
+
+.form-label {
+    color: #07172b !important;
+    font-weight: 600 !important;
+    font-size: 0.88rem;
+    margin-bottom: 0.35rem;
+}
+
+.form-control, .form-select {
+    color: #0f172a !important;
+    background-color: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: var(--radius-sm);
+    font-size: 0.92rem;
+}
+
+.form-control::placeholder {
+    color: #64748b !important;
+    opacity: 0.85 !important;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--scout-navy-primary) !important;
+    box-shadow: 0 0 0 3px rgba(11, 37, 69, 0.15) !important;
+    color: #07172b !important;
+}
+
+.form-text, .help-block {
+    color: #475569 !important;
+    font-size: 0.8rem;
+}
+
+/* ==========================================================
+   NAVBAR & BRANDING (BIRU TUA LAUT + EMAS & MARON)
+   ========================================================== */
+.navbar-scout {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border-navy);
+    box-shadow: 0 4px 20px rgba(11, 37, 69, 0.04);
+    transition: all 0.3s ease;
+    z-index: 1060 !important; /* Ensure navbar is ALWAYS above all sticky elements */
+}
+
+.sticky-sidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 90px;
+    z-index: 20 !important;
+}
+
+.brand-title {
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--scout-navy-primary);
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.brand-subtitle {
+    font-size: 0.72rem;
+    color: var(--scout-gold-main);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-link-custom {
+    font-weight: 600;
+    font-size: 0.91rem;
+    color: #334155 !important;
+    padding: 0.42rem 0.75rem !important;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.nav-link-custom:hover,
+.nav-link-custom.active {
+    color: var(--scout-navy-primary) !important;
+    background: rgba(11, 37, 69, 0.08);
+}
+
+/* ==========================================================
+   HERO SECTION (BIRU TUA LAUT + MERAH MARON + EMAS + COKLAT)
+   ========================================================== */
+.hero-portal {
+    position: relative;
+    background: linear-gradient(135deg, #07172b 0%, #0b2545 45%, #800000 85%, #3e2600 100%);
+    color: #ffffff;
+    padding: 95px 0 115px 0;
+    overflow: hidden;
+}
+
+.hero-portal::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: radial-gradient(rgba(245, 158, 11, 0.18) 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: 0.5;
+}
+
+.hero-glow {
+    position: absolute;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(217, 119, 6, 0.35) 0%, transparent 70%);
+    filter: blur(65px);
+    pointer-events: none;
+}
+
+.hero-glow-1 { top: -120px; right: -120px; }
+.hero-glow-2 { bottom: -120px; left: -120px; }
+
+.badge-hero {
+    background: rgba(245, 158, 11, 0.22);
+    color: #fde68a;
+    border: 1px solid rgba(245, 158, 11, 0.45);
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 6px 16px;
+    border-radius: var(--radius-pill);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.5px;
+}
+
+/* Standardized Page Hero Banner (4 Brand Colors) */
+.page-banner-scout {
+    position: relative;
+    background: linear-gradient(135deg, #07172b 0%, #0b2545 45%, #800000 85%, #3e2600 100%) !important;
+    color: #ffffff;
+    padding: 48px 0;
+    overflow: hidden;
+    border-bottom: 3px solid var(--scout-gold-main);
+}
+
+.page-banner-scout .lead {
+    color: rgba(255, 255, 255, 0.88) !important;
+    font-size: 1.05rem;
+}
+
+.page-banner-scout h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #ffffff !important;
+}
+
+@media (max-width: 768px) {
+    .page-banner-scout {
+        padding: 36px 0;
+    }
+    .page-banner-scout h1 {
+        font-size: 1.75rem;
+    }
+}
+
+/* ==========================================================
+   BUTTONS (4 WARNA RESMI)
+   ========================================================== */
+/* 1. Tombol Biru Tua Laut */
+.btn-scout-primary, .btn-scout-navy {
+    background: linear-gradient(135deg, #0b2545 0%, #07172b 100%);
+    color: #ffffff !important;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 10px 24px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(11, 37, 69, 0.25);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-scout-primary:hover, .btn-scout-navy:hover {
+    background: linear-gradient(135deg, #133e87 0%, #0b2545 100%);
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(11, 37, 69, 0.35);
+}
+
+/* 2. Tombol Merah Maron */
+.btn-scout-maroon {
+    background: linear-gradient(135deg, #800000 0%, #550000 100%);
+    color: #ffffff !important;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 10px 24px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(128, 0, 0, 0.25);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-scout-maroon:hover {
+    background: linear-gradient(135deg, #991b1b 0%, #800000 100%);
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(128, 0, 0, 0.35);
+}
+
+/* 3. Tombol Kuning Emas */
+.btn-scout-gold {
+    background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+    color: #ffffff !important;
+    font-weight: 700;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 10px 24px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(217, 119, 6, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-scout-gold:hover {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4);
+}
+
+/* 4. Tombol Coklat Pramuka */
+.btn-scout-brown {
+    background: linear-gradient(135deg, #5d3a00 0%, #3e2600 100%);
+    color: #ffffff !important;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 10px 24px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(93, 58, 0, 0.25);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-scout-brown:hover {
+    background: linear-gradient(135deg, #78350f 0%, #5d3a00 100%);
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(93, 58, 0, 0.35);
+}
+
+/* Outline Buttons (4 Brand Colors) */
+.btn-scout-outline, .btn-outline-navy, .btn-outline-scout-navy {
+    background: transparent;
+    border: 2px solid var(--scout-navy-primary);
+    color: var(--scout-navy-primary) !important;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    padding: 8px 22px;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-scout-outline:hover, .btn-outline-navy:hover, .btn-outline-scout-navy:hover {
+    background: var(--scout-navy-primary);
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(11, 37, 69, 0.2);
+}
+
+.btn-outline-scout-maroon, .btn-outline-maroon {
+    background: transparent;
+    border: 2px solid var(--scout-maroon-main);
+    color: var(--scout-maroon-main) !important;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    padding: 8px 22px;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-outline-scout-maroon:hover, .btn-outline-maroon:hover {
+    background: var(--scout-maroon-main);
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(128, 0, 0, 0.2);
+}
+
+.btn-outline-scout-gold, .btn-outline-gold {
+    background: transparent;
+    border: 2px solid var(--scout-gold-main);
+    color: var(--scout-gold-main) !important;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    padding: 8px 22px;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-outline-scout-gold:hover, .btn-outline-gold:hover {
+    background: var(--scout-gold-main);
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(217, 119, 6, 0.2);
+}
+
+.btn-outline-scout-brown, .btn-outline-brown {
+    background: transparent;
+    border: 2px solid var(--scout-brown-main);
+    color: var(--scout-brown-main) !important;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    padding: 8px 22px;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-outline-scout-brown:hover, .btn-outline-brown:hover {
+    background: var(--scout-brown-main);
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(93, 58, 0, 0.2);
+}
+
+/* ==========================================================
+   CARDS & CONTAINERS
+   ========================================================== */
+.custom-card {
+    background: var(--surface-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.custom-card:hover {
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(11, 37, 69, 0.2);
+}
+
+.card-scout-navy {
+    border-left: 5px solid var(--scout-navy-primary) !important;
+}
+
+.card-scout-maroon {
+    border-left: 5px solid var(--scout-maroon-main) !important;
+}
+
+.card-scout-gold {
+    border-left: 5px solid var(--scout-gold-main) !important;
+}
+
+.card-scout-brown {
+    border-left: 5px solid var(--scout-brown-main) !important;
+}
+
+.feature-box {
+    padding: 30px;
+    border-radius: var(--radius-md);
+    background: #ffffff;
+    border: 1px solid #eef2f6;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.feature-box:hover {
+    border-color: rgba(11, 37, 69, 0.2);
+    box-shadow: 0 15px 30px -10px rgba(11, 37, 69, 0.12);
+    transform: translateY(-4px);
+}
+
+.feature-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.icon-navy   { background: #e0f2fe; color: var(--scout-navy-primary); }
+.icon-maroon { background: #fee2e2; color: var(--scout-maroon-main); }
+.icon-gold   { background: #fffbeb; color: var(--scout-gold-main); }
+.icon-brown  { background: #fef3c7; color: var(--scout-brown-main); }
+
+/* Compatibility icon aliases */
+.icon-green  { background: #e0f2fe; color: var(--scout-navy-primary); }
+.icon-amber  { background: #fffbeb; color: var(--scout-gold-main); }
+.icon-blue   { background: #e0e7ff; color: var(--scout-navy-light); }
+.icon-purple { background: #fee2e2; color: var(--scout-maroon-main); }
+
+/* BRAND COLOR UTILITY CLASSES */
+.text-scout-navy   { color: var(--scout-navy-primary) !important; }
+.text-scout-maroon { color: var(--scout-maroon-main) !important; }
+.text-scout-gold   { color: var(--scout-gold-main) !important; }
+.text-scout-brown  { color: var(--scout-brown-main) !important; }
+
+.bg-scout-navy   { background-color: var(--scout-navy-primary) !important; color: #ffffff !important; }
+.bg-scout-maroon { background-color: var(--scout-maroon-main) !important; color: #ffffff !important; }
+.bg-scout-gold   { background-color: var(--scout-gold-main) !important; color: #ffffff !important; }
+.bg-scout-brown  { background-color: var(--scout-brown-main) !important; color: #ffffff !important; }
+
+/* OPACITY BADGE HELPERS */
+.badge.bg-primary.bg-opacity-10 {
+    background-color: #e0f2fe !important;
+    color: #0369a1 !important;
+    border: 1px solid #bae6fd !important;
+}
+.badge.bg-danger.bg-opacity-10 {
+    background-color: #fee2e2 !important;
+    color: #991b1b !important;
+    border: 1px solid #fecaca !important;
+}
+.badge.bg-success.bg-opacity-15,
+.badge.bg-success.bg-opacity-10 {
+    background-color: #dcfce7 !important;
+    color: #15803d !important;
+    border: 1px solid #bbf7d0 !important;
+}
+.badge.bg-secondary.bg-opacity-15,
+.badge.bg-secondary.bg-opacity-10 {
+    background-color: #f1f5f9 !important;
+    color: #1e293b !important;
+    border: 1px solid #cbd5e1 !important;
+}
+
+/* ==========================================================
+   SECTION TITLES & LABELS
+   ========================================================== */
+.section-tag {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--scout-gold-main);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.section-heading {
+    font-weight: 800;
+    color: var(--scout-navy-primary);
+    font-size: 2.2rem;
+    letter-spacing: -0.5px;
+}
+
+/* ==========================================================
+   BADGES & STATUS PILLS (HIGH CONTRAST WCAG AAA)
+   ========================================================== */
+.badge {
+    letter-spacing: 0.3px;
+    padding: 0.45em 0.75em;
+    font-weight: 700;
+}
+
+.badge-scout-navy {
+    background: #e0f2fe !important;
+    color: #07172b !important;
+    border: 1px solid #7dd3fc !important;
+    font-weight: 700 !important;
+}
+
+.badge-scout-maroon {
+    background: #fee2e2 !important;
+    color: #7f1d1d !important;
+    border: 1px solid #fca5a5 !important;
+    font-weight: 700 !important;
+}
+
+.badge-scout-gold {
+    background: #fef3c7 !important;
+    color: #78350f !important;
+    border: 1px solid #fde68a !important;
+    font-weight: 700 !important;
+}
+
+.badge-scout-brown {
+    background: #fef3c7 !important;
+    color: #451a03 !important;
+    border: 1px solid #d97706 !important;
+    font-weight: 700 !important;
+}
+
+.badge.bg-warning {
+    background-color: #f59e0b !important;
+    color: #07172b !important;
+    font-weight: 700 !important;
+}
+
+.badge.bg-light {
+    background-color: #f1f5f9 !important;
+    color: #0f172a !important;
+    border: 1px solid #cbd5e1 !important;
+    font-weight: 700 !important;
+}
+
+.badge.bg-secondary {
+    background-color: #475569 !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+}
+
+.badge.bg-info {
+    background-color: #e0f2fe !important;
+    color: #0369a1 !important;
+    border: 1px solid #bae6fd !important;
+    font-weight: 700 !important;
+}
+
+.badge.bg-success {
+    background-color: #dcfce7 !important;
+    color: #15803d !important;
+    border: 1px solid #bbf7d0 !important;
+    font-weight: 700 !important;
+}
+
+.badge.bg-danger {
+    background-color: #fee2e2 !important;
+    color: #991b1b !important;
+    border: 1px solid #fecaca !important;
+    font-weight: 700 !important;
+}
+
+/* ==========================================================
+   ALERTS & CALLOUTS (HIGH CONTRAST)
+   ========================================================== */
+.alert {
+    border-radius: var(--radius-sm);
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+.alert-warning {
+    background-color: #fffbeb !important;
+    border-color: #fde68a !important;
+    color: #78350f !important;
+}
+.alert-warning strong, .alert-warning b {
+    color: #451a03 !important;
+}
+
+.alert-info {
+    background-color: #f0f9ff !important;
+    border-color: #bae6fd !important;
+    color: #0369a1 !important;
+}
+.alert-info strong, .alert-info b {
+    color: #0c4a6e !important;
+}
+
+.alert-success {
+    background-color: #f0fdf4 !important;
+    border-color: #bbf7d0 !important;
+    color: #166534 !important;
+}
+.alert-success strong, .alert-success b {
+    color: #14532d !important;
+}
+
+.alert-danger {
+    background-color: #fef2f2 !important;
+    border-color: #fecaca !important;
+    color: #991b1b !important;
+}
+.alert-danger strong, .alert-danger b {
+    color: #7f1d1d !important;
+}
+
+/* ==========================================================
+   DASHBOARD & ADMIN SIDEBAR (BIRU TUA LAUT + EMAS)
+   ========================================================== */
+.sidebar-wrapper {
+    width: 275px;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #07172b 0%, #0b2545 100%);
+    color: #e2e8f0;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-header {
+    padding: 24px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-menu {
+    padding: 15px 12px;
+    list-style: none;
+    margin: 0;
+}
+
+.sidebar-menu .menu-category {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #94a3b8;
+    font-weight: 700;
+    padding: 14px 16px 6px;
+}
+
+.sidebar-menu .nav-item {
+    margin-bottom: 4px;
+}
+
+.sidebar-menu .nav-link {
+    color: #cbd5e1;
+    font-weight: 500;
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s ease;
+}
+
+.sidebar-menu .nav-link:hover,
+.sidebar-menu .nav-link.active {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.sidebar-menu .nav-link.active {
+    background: linear-gradient(90deg, #133e87 0%, #0b2545 100%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    border-left: 4px solid var(--scout-gold-main);
+}
+
+.main-content-wrapper {
+    margin-left: 275px;
+    min-height: 100vh;
+    background: var(--bg-canvas);
+    padding: 30px;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 991px) {
+    .sidebar-wrapper {
+        margin-left: -275px;
+    }
+    .sidebar-wrapper.show {
+        margin-left: 0;
+    }
+    .main-content-wrapper {
+        margin-left: 0;
+        padding: 20px 15px;
+    }
+}
+
+/* ==========================================================
+   STAT WIDGETS
+   ========================================================== */
+.stat-widget {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 24px;
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-widget::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--scout-navy-primary);
+}
+
+.stat-widget.navy::after   { background: var(--scout-navy-primary); }
+.stat-widget.maroon::after { background: var(--scout-maroon-main); }
+.stat-widget.gold::after   { background: var(--scout-gold-main); }
+.stat-widget.brown::after  { background: var(--scout-brown-main); }
+.stat-widget.blue::after   { background: var(--scout-navy-light); }
+.stat-widget.purple::after { background: var(--scout-maroon-main); }
+.stat-widget.red::after    { background: var(--status-danger); }
+
+/* ==========================================================
+   TABLES (SCOUT STYLE)
+   ========================================================== */
+.table-scout {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.table-scout thead th {
+    background-color: var(--surface-subtle);
+    color: var(--scout-navy-primary);
+    font-weight: 700;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 12px 16px;
+    border-bottom: 2px solid var(--border-navy);
+}
+
+.table-scout tbody td {
+    padding: 14px 16px;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.table-scout tbody tr:hover {
+    background-color: rgba(11, 37, 69, 0.03);
+}
+
+/* ==========================================================
+   PHOTO UPLOAD PREVIEW
+   ========================================================== */
+.photo-upload-box {
+    width: 130px;
+    height: 165px;
+    border: 2px dashed #cbd5e1;
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f1f5f9;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.photo-upload-box:hover {
+    border-color: var(--scout-navy-primary);
+    background: #e0f2fe;
+}
+
+.photo-upload-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==========================================================
+   MULTI-BATCH REGISTRATION TABS & CARDS
+   ========================================================== */
+.batch-tab-nav {
+    border-bottom: 2px solid #e2e8f0;
+    gap: 8px;
+}
+
+.batch-tab-nav .nav-link {
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    color: #334155;
+    font-weight: 700;
+    border-radius: 12px 12px 0 0;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.25s ease;
+}
+
+.batch-tab-nav .nav-link:hover {
+    background: #f1f5f9;
+    border-color: #94a3b8;
+    color: var(--scout-navy-primary);
+}
+
+.batch-tab-nav .nav-link.active {
+    background: linear-gradient(135deg, #0b2545 0%, #07172b 100%);
+    color: #ffffff;
+    border-color: #0b2545;
+    box-shadow: 0 4px 12px rgba(11, 37, 69, 0.25);
+}
+
+.batch-tab-nav .nav-link.active .badge-count {
+    background: var(--scout-gold-main) !important;
+    color: #ffffff !important;
+}
+
+.slot-card {
+    background: #ffffff;
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    margin-bottom: 16px;
+    transition: all 0.2s ease;
+    overflow: hidden;
+}
+
+.slot-card:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+}
+
+.slot-card.is-filled { border-left: 5px solid var(--scout-navy-primary); }
+.slot-card.is-draft  { border-left: 5px solid var(--scout-gold-main); }
+.slot-card.is-empty  { border-left: 5px solid #cbd5e1; opacity: 0.94; }
+
+.slot-header {
+    background: #f8fafc;
+    padding: 12px 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-subtle);
+    user-select: none;
+}
+
+.slot-header:hover {
+    background: #f1f5f9;
+}
+
+.slot-body {
+    padding: 20px;
+}
+
+.slot-photo-thumb {
+    width: 60px;
+    height: 75px;
+    border: 2px dashed #cbd5e1;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafc;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+.slot-photo-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slot-photo-thumb:hover {
+    border-color: var(--scout-navy-primary);
+    background: #e0f2fe;
+}
+
+.lomba-pill-checkbox {
+    border: 1px solid var(--border-subtle);
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 6px 10px;
+    transition: all 0.2s ease;
+    font-size: 0.8rem;
+}
+
+.lomba-pill-checkbox:hover {
+    border-color: var(--scout-navy-primary);
+    background: #e0f2fe;
+}
+
+/* ==========================================================
+   FLOATING ACTION BAR
+   ========================================================= */
+.floating-action-bar {
+    position: sticky;
+    bottom: 20px;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(11, 37, 69, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: var(--radius-md);
+    padding: 14px 20px;
+    z-index: 100;
+}
+
+/* ==========================================================
+   ID CARD & PRINT STYLING (BIRU TUA LAUT + EMAS + MARON)
+   ========================================================== */
+.id-card-wrapper {
+    width: 320px;
+    height: 500px;
+    background: #ffffff;
+    border-radius: 16px;
+    border: 2px solid var(--scout-navy-primary);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 15px auto;
+    page-break-inside: avoid;
+}
+
+.id-card-header {
+    background: linear-gradient(135deg, #07172b 0%, #0b2545 100%);
+    color: #ffffff;
+    padding: 16px 12px;
+    text-align: center;
+    border-bottom: 4px solid var(--scout-gold-main);
+}
+
+.id-card-header .event-title {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #fef08a;
+    margin-bottom: 2px;
+}
+
+.id-card-header .org-title {
+    font-size: 0.85rem;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.id-card-photo-container {
+    padding: 14px;
+    display: flex;
+    justify-content: center;
+}
+
+.id-card-photo {
+    width: 110px;
+    height: 140px;
+    border: 3px solid var(--scout-navy-primary);
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.id-card-body {
+    padding: 0 18px 12px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.id-card-name {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 2px;
+    line-height: 1.2;
+}
+
+.id-card-school {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--scout-navy-primary);
+    margin-bottom: 8px;
+}
+
+.id-card-role-badge {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: var(--radius-pill);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: var(--scout-gold-main);
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.id-card-lomba-list {
+    background: #f8fafc;
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 0.68rem;
+    text-align: left;
+    max-height: 60px;
+    overflow-y: auto;
+}
+
+.id-card-footer {
+    background: #f1f5f9;
+    border-top: 1px dashed #cbd5e1;
+    padding: 8px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.65rem;
+    color: #64748b;
+}
+
+/* ==========================================================
+   PRINT MEDIA RULES
+   ========================================================== */
+@media print {
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+    .no-print {
+        display: none !important;
+    }
+    .sidebar-wrapper, .navbar, footer, .floating-action-bar {
+        display: none !important;
+    }
+    .main-content-wrapper {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .id-card-wrapper {
+        box-shadow: none !important;
+        border: 1px solid #000000 !important;
+        page-break-inside: avoid;
+        margin: 10px;
+        display: inline-block;
+        vertical-align: top;
+    }
+}

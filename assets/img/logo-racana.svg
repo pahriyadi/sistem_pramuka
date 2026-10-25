@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 100" width="320" height="100">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b2545"/>
+      <stop offset="100%" stop-color="#800000"/>
+    </linearGradient>
+    <linearGradient id="goldText" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Emblem Badge -->
+  <g transform="translate(10, 10)" filter="url(#shadow)">
+    <!-- Pentagonal Shield -->
+    <polygon points="40,2 78,16 66,74 40,82 14,74 2,16" fill="url(#shieldGrad)" stroke="#d97706" stroke-width="2.5"/>
+    <!-- Inner Border -->
+    <polygon points="40,7 72,19 62,68 40,75 18,68 8,19" fill="none" stroke="#fbbf24" stroke-width="1" stroke-dasharray="3,2"/>
+    
+    <!-- Tunas Kelapa -->
+    <g transform="translate(40, 44) scale(0.7)">
+      <path d="M0,-28 C7,-15 9,-4 0,14 C-9,-4 -7,-15 0,-28 Z" fill="#fbbf24" stroke="#5d3a00" stroke-width="1.2"/>
+      <path d="M0,6 C-14,4 -24,-6 -20,-17 C-15,-8 -6,-1 0,6 Z" fill="#fbbf24" stroke="#5d3a00" stroke-width="1.2"/>
+      <path d="M0,6 C14,4 24,-6 20,-17 C15,-8 6,-1 0,6 Z" fill="#fbbf24" stroke="#5d3a00" stroke-width="1.2"/>
+      <circle cx="0" cy="18" r="8" fill="#5d3a00"/>
+      <circle cx="0" cy="18" r="6.5" fill="#fbbf24"/>
+      <polygon points="0,-32 2,-27 7,-27 3,-23 5,-18 0,-21 -5,-18 -3,-23 -7,-27 -2,-27" fill="#ffffff"/>
+    </g>
+  </g>
+
+  <!-- Typography -->
+  <text x="100" y="38" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="800" font-size="20" fill="#0b2545" letter-spacing="1">RACANA UNSA</text>
+  <text x="100" y="58" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="700" font-size="12" fill="#800000" letter-spacing="0.5">UNIVERSITAS SAMAWA</text>
+  <text x="100" y="76" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="600" font-size="10" fill="#5d3a00">Gudep 01.085 - 01.086 Sumbawa</text>
+
+  <!-- Golden Accent Line -->
+  <line x1="100" y1="62" x2="280" y2="62" stroke="#d97706" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

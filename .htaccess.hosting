@@ -1,0 +1,103 @@
+# ==============================================================================
+# Apache Web Server Configuration (Dedicated for Live Hosting Subdomain)
+# Target: public_html/racanaunsa.my.id (Domain: https://racanaunsa.my.id/)
+# ==============================================================================
+
+<IfModule mod_autoindex.c>
+    Options -Indexes
+</IfModule>
+<IfModule mod_negotiation.c>
+    Options -MultiViews
+</IfModule>
+
+ServerSignature Off
+AddDefaultCharset UTF-8
+
+# Block access to sensitive files
+<FilesMatch "^(\.env|\.git|\.gitignore|composer\.(json|lock)|package\.json|database\.sql|\.system_generated|.*\.log|.*\.bak|.*\.ini)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Block direct HTTP requests to internal config files and database dumps
+    RewriteRule ^config/database\.php$ - [F,L]
+    RewriteRule ^database/ - [F,L]
+
+    # Serve existing physical files and directories directly
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # --- PUBLIC DISGUISED ROUTES ---
+    RewriteRule ^beranda/?$ index.php [QSA,L]
+    RewriteRule ^profil-racana/?$ tentang.php [QSA,L]
+    RewriteRule ^mata-kompetisi/?$ lomba.php [QSA,L]
+    RewriteRule ^rincian-lomba/?$ lomba-detail.php [QSA,L]
+    RewriteRule ^panduan-teknis/?$ petunjuk-teknis.php [QSA,L]
+    RewriteRule ^unduh-berkas/?$ unduh-dokumen.php [QSA,L]
+    RewriteRule ^warta-berita/?$ berita.php [QSA,L]
+    RewriteRule ^baca-warta/?$ berita-detail.php [QSA,L]
+    RewriteRule ^layanan-bantuan/?$ kontak.php [QSA,L]
+    RewriteRule ^sistem-setup/?$ install.php [QSA,L]
+
+    # --- AUTH DISGUISED ROUTES ---
+    RewriteRule ^masuk-portal/?$ auth/login.php [QSA,L]
+    RewriteRule ^registrasi-gudep/?$ auth/register.php [QSA,L]
+    RewriteRule ^keluar-portal/?$ auth/logout.php [QSA,L]
+
+    # --- DASHBOARD (SEKOLAH / KONTINGEN) DISGUISED ROUTES ---
+    RewriteRule ^portal/ringkasan/?$ dashboard/index.php [QSA,L]
+    RewriteRule ^portal/data-anggota/?$ dashboard/peserta.php [QSA,L]
+    RewriteRule ^portal/registrasi-kolektif/?$ dashboard/peserta-tambah.php [QSA,L]
+    RewriteRule ^portal/perbarui-anggota/?$ dashboard/peserta-edit.php [QSA,L]
+    RewriteRule ^portal/hapus-anggota/?$ dashboard/peserta-hapus.php [QSA,L]
+    RewriteRule ^portal/konfirmasi-kas/?$ dashboard/pembayaran.php [QSA,L]
+    RewriteRule ^portal/profil-gudep/?$ dashboard/sekolah.php [QSA,L]
+    RewriteRule ^portal/arsip-berkas/?$ dashboard/dokumen.php [QSA,L]
+    RewriteRule ^portal/rundown-acara/?$ dashboard/jadwal-kegiatan.php [QSA,L]
+    RewriteRule ^portal/kartu-tanda-peserta/?$ dashboard/cetak-idcard.php [QSA,L]
+    RewriteRule ^portal/lembar-biodata/?$ dashboard/cetak-formulir.php [QSA,L]
+
+    # --- ADMIN (PANEL KENDALI) DISGUISED ROUTES ---
+    RewriteRule ^panel/pusat-kendali/?$ admin/index.php [QSA,L]
+    RewriteRule ^panel/kontingen-pangkalan/?$ admin/kontingen.php [QSA,L]
+    RewriteRule ^panel/rincian-pangkalan/?$ admin/kontingen-detail.php [QSA,L]
+    RewriteRule ^panel/master-peserta/?$ admin/peserta-all.php [QSA,L]
+    RewriteRule ^panel/jadwal-kompetisi/?$ admin/mata-lomba.php [QSA,L]
+    RewriteRule ^panel/validasi-transaksi/?$ admin/pembayaran.php [QSA,L]
+    RewriteRule ^panel/kelola-arsip/?$ admin/dokumen.php [QSA,L]
+    RewriteRule ^panel/publikasi-warta/?$ admin/berita.php [QSA,L]
+    RewriteRule ^panel/otoritas-pengguna/?$ admin/users.php [QSA,L]
+    RewriteRule ^panel/preferensi-sistem/?$ admin/pengaturan.php [QSA,L]
+    RewriteRule ^panel/rekapitulasi-cetak/?$ admin/cetak-rekap.php [QSA,L]
+
+    # --- GENERIC EXTENSIONLESS FALLBACK ---
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteRule ^([a-zA-Z0-9_\-\/]+)/?$ $1.php [QSA,L]
+</IfModule>
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json application/xml
+</IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
